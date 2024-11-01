@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+li{list-style:none;}
+
+a{text-decoration:none; color:inherit;}
+
+img{max-width:100%; vertical-align: top;}
+ /* 이미지의 베이스라인을 top으로 지정해 준다. */
+
+table{width:100%;border-collapse: collapse; }
+ /* collapse 속성은 겹치는 표 형식의 테두리를 단일화 시킨다. */
+button{cursor: pointer;}
+body{background: #d3acd3; color: #333;}
+
+.inner{ width:1200px; margin:auto;}
+header{ position:relative; height: 100px; background-color:beige; padding-top: 35px; padding-left: 35px;}
+nav{ position: absolute; top:40px; right:0px; z-index: 10;}
+nav>ul{ display:flex;}
+nav>ul>li>a{ display:block; width:120px; background-color: gray; text-align:center; color: white;}
+nav>ul>li:hover>a,
+nav>ul>li>a:focus,
+nav>ul>li.on>a{background-color:#fccc;}
+/* 띄어 쓰기선택자는 하위의 모든 지정태그를 지칭 */
+/* z-index는 position을 띄운 것끼리 우선순위를 정한다. */
+/* 블록레벨 태그는 width값이 지정되어야 가운데 정렬이 가능하다 */
+
+.slide{ height: 300px; background-color:yellow;}
+.con{ height: 200px; background-color:green; display: flex;}
+.con article{width:400px;}
+.con article:nth-child(2){background-color:white;}
+
+footer{height:100px; background: gray;}
