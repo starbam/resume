@@ -12,23 +12,92 @@ img{max-width:100%; vertical-align: top;}
 table{width:100%;border-collapse: collapse; }
  /* collapse 속성은 겹치는 표 형식의 테두리를 단일화 시킨다. */
 button{cursor: pointer;}
-body{background: #d3acd3; color: #333;}
+body{background: #ffffff; color: #333333; }
 
 .inner{ width:1200px; margin:auto;}
-header{ position:relative; height: 100px; background-color:beige; padding-top: 35px; padding-left: 35px;}
+
+/* 기본셋팅 끝 */
+.wrap{position: relative;}
+header{ position:relative; height: 100px; background-color:#ffd2b2; padding-top: 35px; padding-left: 35px;}
 nav{ position: absolute; top:40px; right:0px; z-index: 10;}
 nav>ul{ display:flex;}
-nav>ul>li>a{ display:block; width:120px; background-color: gray; text-align:center; color: white;}
+nav>ul>li>a{ display:block; width:120px; background-color: gray; text-align:center; color: white; font-weight:bold;}
 nav>ul>li:hover>a,
 nav>ul>li>a:focus,
-nav>ul>li.on>a{background-color:#fccc;}
+nav>ul>li.on>a{background-color:rgba(153, 26, 26, 0.8);}
+/* li.on => 이벤트에 들어갈 선택자 */
 /* 띄어 쓰기선택자는 하위의 모든 지정태그를 지칭 */
 /* z-index는 position을 띄운 것끼리 우선순위를 정한다. */
 /* 블록레벨 태그는 width값이 지정되어야 가운데 정렬이 가능하다 */
+.sub{display:none;}
+/* 드롭다운 형식으로 이어져야 하기 때문에 .sub영역을 none 시켜서 감춰둔다 */
+.sub li a{ display:block; padding:5px; text-align:center; font-size:14px; background:#fff;}
+.sub li a:hover,
+.sub li a:focus{background:#f2e2d2;}
 
-.slide{ height: 300px; background-color:yellow;}
-.con{ height: 200px; background-color:green; display: flex;}
+.slide{ height: 300px; background-color:yellow; position:relative; overflow:hidden;}
+.slide ul{position:absolute; top:0; left:0; height:900px;}
+.slide ul li{ width:1200px; height:300px;}
+.slide ul li a{display:block; height:100%; position:relative;}
+.slide ul li.s1{background:url(../img/Slide_1.jpg) no-repeat center/cover; }
+.slide ul li.s2{background:url(../img/Slide_2.jpg) no-repeat center/cover; }
+.slide ul li.s3{background:url(../img/Slide_3.jpg) no-repeat center/cover; }
+.slide ul li a h2{background:#cde574a9; position:absolute; top:50%; left:50%; font-weight:bold; border-radius:20px; 
+    transform:translate(-50%,-50%); }
+/* 'transform:translate(x, y)' 는position의 위치 이동을 움직이기 위해 해당 오브젝트의 길이에 해당하는 위치를 설정할 수 있다. */
+
+
+.con{ height: 200px; display: flex;}
 .con article{width:400px;}
 .con article:nth-child(2){background-color:white;}
 
-footer{height:100px; background: gray;}
+.con1{position:relative;}
+.con1 .tabmenu{display:flex;}
+.con1 .tabmenu>li{width:150px; background:white}
+.con1 .tabmenu>li.on{background:#ceb323;}
+.con1 .tabmenu>li>h2>a{display:block; text-align:center; padding:10px 0; font-weight: bold; font-size: 20px;}
+.con1 .tabcon{position:absolute; left:0; width:100%; background:#ceb398;}
+
+.notice{padding-top: 10px;}
+.notice th{text-align: left; color:#fff;}
+.notice td{color:#fff;}
+.notice tr{border-bottom:1px dashed #fff;}
+.notice a{padding:5px; display:block; width:250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+/* white-space: nowrap 글이 넘치면 줄바꿈이 안되게 만든다 */
+/* overflow: hidden 부모 영역을 벗어나는 부분은 감춘다 */
+/* text-overflow: ellipsis 영역을 벗어나는 글귀를 ...으로 말줄임 시킨다. */
+
+.gall{display:none; }
+.gall ul{display:flex; justify-content: space-between;}
+.gall ul li a>img{height:120px;}
+
+.con2{padding: 10px;}
+.con2 a{display: block; height: 100%; background: url(../img/Slide_1.jpg) center/cover;
+     border-radius:30px; text-align:center; overflow: hidden;}
+.con2 div{background: rgba(206, 179, 172, .8); height:100%; padding-top:20px;}
+.con2 h2{margin-bottom: 10px;}
+.con2 p{background: #333; color: #fff; display: inline-block; font-size: 13px; margin-top: 20px;}
+
+.con3{padding: 10px;}
+.con3 h2{color: #ceb398; margin-bottom: 20px; }
+.con3 ul{display:flex; text-align:center; gap:20px; justify-content:center;}
+.con3 ul li a{display:block; height:100%;}
+.con3 ul li p{width: 80px; height:80px; background: #ceb398; padding-top: 20px; border-radius:20px;}
+.con3 ul li span{margin-top:10px; display:block; font-weight:bold;}
+.con3 ul li p>img{height:100%; padding-bottom: 20px;}
+
+footer{height:100px; background: #333; color:#fff; position:relative; padding-top: 25px; padding-left: 25px;
+        display:flex; gap:20px;}
+.fsns{display:flex;  gap:10px; position:absolute; top:30px; right:20px;}
+.fsns li a{display:block; width:30px; height:30px; background: #fff; border-radius: 50%; text-align:center;}
+.fsns li:nth-child(1) a{background:#3f5b9a;}
+.fsns li:nth-child(2) a{background:#141d32;}
+.fsns li:nth-child(3) a{background:#7c853f;}
+
+.popup{position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); text-align: center; padding:20px;
+        width:500px; background:#fff; z-index: 9999; display:none;}
+.popup h2{color:#ceb398; margin-bottom: 20px;}
+.popup .text{margin:20px 0;}
+.popup .button{text-align:right;}
+.popup button{border:0; padding:20px; background: #ceb396; color:#fff; border-radius:10px;}
+.popup button:hover{background: #212121;}
